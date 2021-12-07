@@ -1,0 +1,86 @@
+@import "../tools/colors";
+@import "../tools/typograpy";
+@import "../tools/breakpoints";
+
+.header-block {
+  display: flex;
+  flex-direction: row;
+  font-family: $font-family-lato;
+  font-size: 13px;
+  padding: 100px 161px;
+  align-items: center;
+
+  &__logo {
+    flex-grow: 2;
+  }
+
+  &__link {
+    text-decoration: none;
+    color: $color-black;
+
+   }
+
+  &__list {
+    display: flex;
+    flex-direction: row;
+
+    &__item {
+      padding-left: 52px;
+
+      :active {
+        text-decoration-line: underline;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $tb) {
+  .header-block {
+    padding: 16px;
+  }
+}
+
+@media screen and (max-width: $lt) {
+  .header-block {
+    padding: 25px;
+  }
+}
+
+.nav-mb {
+  display: none;
+  transition: all 0.3s ease-in-out;
+}
+
+@media screen and (max-width: $tb) {
+
+  .header-block__list_search {
+    display: none;
+  }
+  .nav-mb {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  .hamburger {
+    padding-left: 8px;
+    display: block;
+    cursor: pointer;
+  }
+
+  .nav-menu {
+    display: none;
+
+    .menu__open & {
+      display: block;
+      position: absolute;
+      right: 10px;
+      top: 40px;
+      height: 100px;
+
+      .header-block__list__item {
+        padding-bottom: 10px;
+      }
+    }
+  }
+
+}
